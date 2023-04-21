@@ -89,6 +89,11 @@ class Config(metaclass=Singleton):
         self.milvus_addr = os.getenv("MILVUS_ADDR", "localhost:19530")
         self.milvus_collection = os.getenv("MILVUS_COLLECTION", "autogpt")
 
+        # Vectara configuration.
+        self.vectara_customer_id = os.getenv("VECTARA_CUSTOMER_ID")
+        self.vectara_app_id = os.getenv("VECTARA_APP_CLIENT_ID")
+        self.vectara_app_secret = os.getenv("VECTARA_APP_CLIENT_SECRET")
+
         self.image_provider = os.getenv("IMAGE_PROVIDER")
         self.image_size = int(os.getenv("IMAGE_SIZE", 256))
         self.huggingface_api_token = os.getenv("HUGGINGFACE_API_TOKEN")

@@ -74,6 +74,7 @@ Development of this free, open-source project is made possible by all the <a hre
   - [Milvus](https://milvus.io/)
   - [Redis](https://redis.io)
   - [Weaviate](https://weaviate.io)
+  - [Vectara](https://vectara.com)
 - ElevenLabs Key (If you want the AI to speak)
 
 ## ⚠️ OpenAI API Keys Configuration ⚠️ 
@@ -369,6 +370,22 @@ export MEMORY_BACKEND="pinecone"
 ### Weaviate Setup
 [Weaviate](https://weaviate.io/) is an open-source vector database. It allows to store data objects and vector embeddings from ML-models and scales seamlessly to billion of data objects. [An instance of Weaviate can be created locally (using Docker), on Kubernetes or using Weaviate Cloud Services](https://weaviate.io/developers/weaviate/quickstart). 
 Although still experimental, [Embedded Weaviate](https://weaviate.io/developers/weaviate/installation/embedded) is supported which allows the Auto-GPT process itself to start a Weaviate instance. To enable it, set `USE_WEAVIATE_EMBEDDED` to `True` and make sure you `pip install "weaviate-client>=3.15.4"`. 
+
+### Vectara Setup
+
+Vectara enables the storage of vast amounts of data, allowing for only relevant memories to be loaded for the agent at any given time.
+Unlike other memory backends that use OpenAI models to generate embeddings (aka vectara), Vectara uses its internal state-of-the-art models.
+
+1. Go to [Vectara](https://vectara.com/) and create a free account if you don't already have one. Note your customer (account) id emailed to you. This can also be retrieved from the top-right once you are logged into the console.
+2. Create an app client at https://console.vectara.com/console/authentication/app-client. Make sure you select `Corpus Admin` role.
+3. Use the app client id and secret in the `.env`.
+
+In the `.env` file set:
+- `VECTARA_CUSTOMER_ID` - Your customer (account) id.
+- `VECTARA_APP_CLIENT_ID` - Name (id) of the app client you created.
+- `VECTARA_APP_CLIENT_SECRET` - Secret of the app client.
+- `MEMORY_BACKEND=vectara`
+- `MEMORY_INDEX=Auto-GPT`
 
 #### Install the Weaviate client
 
