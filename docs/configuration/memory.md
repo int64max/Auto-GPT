@@ -159,7 +159,7 @@ In your `.env` file set the following:
 - `VECTARA_APP_CLIENT_ID` - Name (id) of the app client you created.
 - `VECTARA_APP_CLIENT_SECRET` - Secret of the app client.
 - `MEMORY_BACKEND=vectara`
-- `MEMORY_INDEX=Auto-GPT`
+- `MEMORY_INDEX=Auto-GPT` - Used as Vectara corpus name
 
 ## View Memory Usage
 
