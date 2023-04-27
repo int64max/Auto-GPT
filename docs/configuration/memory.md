@@ -20,6 +20,7 @@ Links to memory backends
 - [Milvus](https://milvus.io/) &ndash; [self-hosted](https://milvus.io/docs), or managed with [Zilliz Cloud](https://zilliz.com/)
 - [Redis](https://redis.io)
 - [Weaviate](https://weaviate.io)
+- [Vectara](https://vectara.com)
 
 ### Redis Setup
 
@@ -141,6 +142,24 @@ WEAVIATE_EMBEDDED_PATH="/home/me/.local/share/weaviate" # this is optional and i
 USE_WEAVIATE_EMBEDDED=False # set to True to run Embedded Weaviate
 MEMORY_INDEX="Autogpt" # name of the index to create for the application
 ```
+
+### Vectara Setup
+
+Vectara enables the storage of vast amounts of data, allowing for only relevant memories to be loaded for the agent at any given time.
+Unlike other memory backends that use OpenAI models to generate embeddings (aka vectara), Vectara uses its internal state-of-the-art models.
+
+1. Go to [Vectara](https://vectara.com/) and create a free account if you don't already have one. Note your customer (account) id emailed to you. This can also be retrieved from the top-right once you are logged into the console.
+2. Create an app client at https://console.vectara.com/console/authentication/app-client. Make sure you select `Corpus Admin` role.
+3. Use the app client id and secret in the `.env`.
+
+#### Setting up environment variables
+
+In your `.env` file set the following:
+- `VECTARA_CUSTOMER_ID` - Your customer (account) id.
+- `VECTARA_APP_CLIENT_ID` - Name (id) of the app client you created.
+- `VECTARA_APP_CLIENT_SECRET` - Secret of the app client.
+- `MEMORY_BACKEND=vectara`
+- `MEMORY_INDEX=Auto-GPT`
 
 ## View Memory Usage
 
